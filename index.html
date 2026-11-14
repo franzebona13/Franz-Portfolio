@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Franz Jan Eboña — Computer Engineering Portfolio</title>
+  <meta name="description" content="Portfolio and resume of Franz Jan Eboña, a Computer Engineering student designing embedded systems, digital circuits, and web applications." />
+  <meta name="theme-color" content="#04060d" />
+
+  <!-- Social preview (Facebook, LinkedIn, Messenger) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Franz Jan Eboña — Computer Engineering Portfolio" />
+  <meta property="og:description" content="Embedded systems, digital circuits, and web applications — projects, certificates, and resume." />
+  <meta property="og:image" content="images/Profile.jpeg" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%2360a5fa'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='%2304060d'%3EFJ%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Lets the CSS know JavaScript is running, so content is never left invisible if it isn't -->
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Background lighting: slow ambient glow + a soft light that follows the mouse (desktop) -->
+  <div class="ambient" aria-hidden="true">
+    <span class="ambient-blob ab-1"></span>
+    <span class="ambient-blob ab-2"></span>
+    <span class="ambient-blob ab-3"></span>
+  </div>
+  <div class="cursor-light" aria-hidden="true"></div>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Main">
+      <div class="nav-group nav-main">
+        <a href="#home" class="brand" aria-label="Franz Jan Eboña — back to top">
+          <span class="brand-mark" aria-hidden="true">FJ</span>
+          <span class="brand-name">Franz Eboña</span>
+        </a>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-group nav-side">
+        <a href="resume/Franz-Ebona-Resume.pdf" class="nav-resume" data-resume target="_blank" rel="noopener" aria-label="View resume">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h4" /></svg>
+          <span class="nav-resume-text">Resume</span>
+        </a>
+        <a href="mailto:franzebona13@gmail.com" data-link="email" class="pill pill-light pill-sm">Get in touch</a>
+        <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <div class="hero-bg" aria-hidden="true">
+          <!-- faint "PCB traces" with pulses of current running along them -->
+          <svg class="hero-traces" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+            <g class="trace-base" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M0 140 H260 L310 190 H520" />
+              <path d="M0 520 H180 L240 460 H420 L470 410 H600" />
+              <path d="M1200 90 H980 L930 140 H820" />
+              <path d="M1200 600 H1020 L960 540 H840" />
+              <path d="M700 0 V80 L750 130 V220" />
+              <path d="M560 700 V630 L610 580 H700" />
+            </g>
+            <g class="trace-flow" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M0 140 H260 L310 190 H520" />
+              <path d="M0 520 H180 L240 460 H420 L470 410 H600" />
+              <path d="M1200 90 H980 L930 140 H820" />
+              <path d="M1200 600 H1020 L960 540 H840" />
+              <path d="M700 0 V80 L750 130 V220" />
+              <path d="M560 700 V630 L610 580 H700" />
+            </g>
+            <g class="trace-base" fill="currentColor">
+              <circle cx="520" cy="190" r="5" /><circle cx="600" cy="410" r="5" />
+              <circle cx="820" cy="140" r="5" /><circle cx="840" cy="540" r="5" />
+              <circle cx="750" cy="220" r="5" /><circle cx="700" cy="580" r="5" />
+            </g>
+          </svg>
+
+          <!-- oscilloscope: analog + digital channel -->
+          <svg class="hero-scope" viewBox="0 0 1200 160" preserveAspectRatio="none">
+            <path class="wave-analog" d="M0 60 Q100 0 200 60 T400 60 T600 60 T800 60 T1000 60 T1200 60 T1400 60 T1600 60 T1800 60" vector-effect="non-scaling-stroke" />
+            <path class="wave-digital" d="M0 140 H40 V100 H120 V140 H200 V100 H280 V140 H360 V100 H440 V140 H520 V100 H600 V140 H680 V100 H760 V140 H840 V100 H920 V140 H1000 V100 H1080 V140 H1160 V100 H1240 V140 H1320 V100 H1400 V140 H1480 V100 H1560 V140 H1640 V100 H1720 V140 H1800" vector-effect="non-scaling-stroke" />
+          </svg>
+        </div>
+
+        <div class="hero-content">
+          <span class="tag tag-glass reveal"><span class="tag-dot"></span>Computer Engineering Student</span>
+          <h1 class="hero-title reveal" style="--d:1">
+            <span class="hero-name">Franz Jan Eboña</span>
+            Engineering ideas into <em>real-world solutions.</em>
+          </h1>
+          <p class="hero-lead reveal" style="--d:2">Designing embedded systems, digital circuits, and web applications — from first sketch to tested, working build.</p>
+          <div class="btn-row reveal" style="--d:3">
+            <a href="#projects" class="pill pill-light pill-lg">
+              View my work
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a href="resume/Franz-Ebona-Resume.pdf" class="pill pill-glass pill-lg" data-resume target="_blank" rel="noopener">
+              View resume
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h4" /></svg>
+            </a>
+          </div>
+          <ul class="hero-social reveal" style="--d:4" aria-label="Profiles">
+            <li><a href="https://github.com/franzebona13" data-link="github">GitHub <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/franz-jan-eboña-40697b2a8" data-link="linkedin">LinkedIn <span aria-hidden="true">↗</span></a></li>
+            <li><a href="mailto:franzebona13@gmail.com" data-link="email">Email <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal" style="--d:2">
+          <div class="chip">
+            <span class="chip-pins chip-pins-left" aria-hidden="true"></span>
+            <span class="chip-pins chip-pins-right" aria-hidden="true"></span>
+            <div class="chip-body">
+              <img src="images/Profile.jpeg" alt="Portrait of Franz Jan Eboña" width="320" height="380" fetchpriority="high" />
+            </div>
+            <span class="chip-label" aria-hidden="true">U1 · FJE</span>
+          </div>
+        </div>
+
+        <div class="hero-meta" aria-hidden="true">
+          <span><b>HW</b> Arduino · Digital logic · Analog</span>
+          <span><b>SW</b> HTML · CSS · JavaScript</span>
+          <span class="hero-scroll">Scroll <i></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="split-head">
+          <span class="tag reveal"><span class="tag-num">01</span>About me</span>
+          <h2 class="statement reveal" style="--d:1">
+            I’m a Computer Engineering student focused on <span class="hl">building reliable, practical technology</span>
+            <span class="dim">— combining hands-on hardware experience with clean, user-friendly software.</span>
+          </h2>
+        </div>
+
+        <div class="about-body">
+          <figure class="about-photo reveal reveal-clip">
+            <img src="images/robotic1.jpg" alt="Robotic arm built by Franz" loading="lazy" decoding="async" />
+            <figcaption>// Robotic arm build</figcaption>
+          </figure>
+
+          <div class="about-copy reveal" style="--d:1">
+            <p>I enjoy work that turns theory into something real — a counter wired on a breadboard, a robot that reacts to its sensors, or an interface that responds instantly in the browser.</p>
+            <p>Every build sharpens how I approach problems. I'm continually growing my technical range and critical thinking so I can contribute meaningfully to the team I join next.</p>
+            <div class="about-links">
+              <a href="#process" class="text-link">See how I work <span aria-hidden="true">→</span></a>
+              <a href="resume/Franz-Ebona-Resume.pdf" class="text-link" data-resume target="_blank" rel="noopener">View my resume <span aria-hidden="true">↗</span></a>
+            </div>
+
+            <!-- These numbers are counted automatically from your project and certificate cards -->
+            <div class="stats">
+              <div class="stat"><span class="stat-num" data-count="hardware">18</span><span class="stat-label">Hardware builds — circuits, robots, and Arduino systems</span></div>
+              <div class="stat"><span class="stat-num" data-count="software">2</span><span class="stat-label">Web applications built with HTML, CSS &amp; JavaScript</span></div>
+              <div class="stat" data-stat="certs"><span class="stat-num" data-count="certs">0</span><span class="stat-label">Certificates earned</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROCESS ============================ -->
+    <section id="process" class="section section-band">
+      <div class="container">
+        <div class="row-head">
+          <div>
+            <span class="tag reveal"><span class="tag-num">02</span>How I work</span>
+            <h2 class="h2 reveal" style="--d:1">From idea to<br />working system</h2>
+          </div>
+          <p class="row-head-text reveal" style="--d:2">A simple, repeatable way of working that keeps every build — circuit or code — clear, tested, and easy to improve.</p>
+        </div>
+
+        <ol class="process-grid">
+          <li class="process-card reveal">
+            <span class="process-num">01</span>
+            <h3>Understand</h3>
+            <p>Break the problem down into requirements, inputs, outputs, and constraints.</p>
+          </li>
+          <li class="process-card reveal" style="--d:1">
+            <span class="process-num">02</span>
+            <h3>Design</h3>
+            <p>Truth tables, schematics, and wireframes — planned before anything gets built.</p>
+          </li>
+          <li class="process-card reveal" style="--d:2">
+            <span class="process-num">03</span>
+            <h3>Build</h3>
+            <p>Wire it on the breadboard or write the code, one working piece at a time.</p>
+          </li>
+          <li class="process-card reveal" style="--d:3">
+            <span class="process-num">04</span>
+            <h3>Test &amp; refine</h3>
+            <p>Measure, debug, and iterate until it behaves exactly as designed.</p>
+          </li>
+        </ol>
+
+        <div class="toolbar reveal">
+          <p class="toolbar-label">Tools &amp; components<br />I work with</p>
+          <div class="marquee">
+            <ul class="marquee-track">
+              <li>Arduino</li><li>Arduino IDE</li><li>HTML5</li><li>CSS3</li><li>JavaScript</li>
+              <li>Breadboarding</li><li>555 Timer</li><li>CD4017 Counter</li><li>74HC73 JK Flip-Flop</li>
+              <li>Servo Motors</li><li>Ultrasonic Sensors</li><li>IR Sensors</li><li>Keypads</li>
+              <li>LED Matrices</li><li>7-Segment Displays</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SKILLS ============================ -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="row-head">
+          <div>
+            <span class="tag reveal"><span class="tag-num">03</span>What I do</span>
+            <h2 class="h2 reveal" style="--d:1">Skills across<br />hardware and software</h2>
+          </div>
+          <p class="row-head-text reveal" style="--d:2">A practical skill set built through coursework and hands-on projects, covering circuit design, microcontroller programming, and web development.</p>
+        </div>
+
+        <ul class="skill-list">
+          <li class="skill-row reveal">
+            <span class="skill-num">01</span>
+            <h3 class="skill-title">Microcontrollers &amp; Arduino</h3>
+            <img class="skill-img" src="images/Obstacle.jpg" alt="" loading="lazy" decoding="async" />
+            <p class="skill-desc">Sensor-driven systems using servos, keypads, ultrasonic and IR sensors, programmed in the Arduino IDE.</p>
+          </li>
+          <li class="skill-row reveal">
+            <span class="skill-num">02</span>
+            <h3 class="skill-title">Digital logic design</h3>
+            <img class="skill-img" src="images/plate6.jpg" alt="" loading="lazy" decoding="async" />
+            <p class="skill-desc">Logic gates, Boolean simplification, adders, counters, and flip-flops — designed and wired by hand.</p>
+          </li>
+          <li class="skill-row reveal">
+            <span class="skill-num">03</span>
+            <h3 class="skill-title">Analog electronics</h3>
+            <img class="skill-img" src="images/Amp1.jpeg" alt="" loading="lazy" decoding="async" />
+            <p class="skill-desc">Audio amplifiers, 555 timer circuits, and transistor-based logic such as RTL and DTL.</p>
+          </li>
+          <li class="skill-row reveal">
+            <span class="skill-num">04</span>
+            <h3 class="skill-title">Web development</h3>
+            <img class="skill-img" src="images/inventory1.jpeg" alt="" loading="lazy" decoding="async" />
+            <p class="skill-desc">Responsive, interactive web applications built with HTML, CSS, and JavaScript.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================ PROJECTS ============================
+         Each card:
+         - data-tags   → which filters it appears under (hardware, software, logic)
+         - data-media  → every image/video shown in the gallery, separated by |
+         - the <img>   → the cover photo on the card
+    ===================================================================== -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="row-head">
+          <div>
+            <span class="tag reveal"><span class="tag-num">04</span>Projects</span>
+            <h2 class="h2 reveal" style="--d:1">Selected work<br />and builds</h2>
+          </div>
+          <p class="row-head-text reveal" style="--d:2">A mix of Arduino systems, digital logic circuits, and web applications. Open any project to see its photos and demo videos.</p>
+        </div>
+
+        <div class="filter-bar reveal" role="group" aria-label="Filter projects">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All <span class="filter-count"></span></button>
+          <button class="filter-btn" type="button" data-filter="hardware" aria-pressed="false">Hardware <span class="filter-count"></span></button>
+          <button class="filter-btn" type="button" data-filter="logic" aria-pressed="false">Digital logic <span class="filter-count"></span></button>
+          <button class="filter-btn" type="button" data-filter="software" aria-pressed="false">Software <span class="filter-count"></span></button>
+        </div>
+
+        <div class="work-grid" id="work-grid">
+          <article class="work-card feature" data-tags="hardware" data-media="images/robotic1.jpg|images/robotic2.jpg|video/roboticvid.mp4">
+            <img class="work-cover" src="images/robotic1.jpg" alt="Robotic arm build" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Hardware · Electromechanical</span>
+              <h3><button class="work-open" type="button">Robotic Arm</button></h3>
+              <p>An automated electromechanical arm that replicates the functions of a human arm through joints, actuators, and a control system — for tasks like material handling, assembly, and sorting.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware" data-media="images/Techno.jfif|video/Techno.mp4">
+            <img class="work-cover" src="images/Techno.jfif" alt="Gravity Shift maze device" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Hardware · Arduino · Servos</span>
+              <h3><button class="work-open" type="button">Gravity Shift</button></h3>
+              <p>A ball navigates a maze as the platform tilts to simulate gravity changes — controlled with an Arduino, servo motors, and a UI controller, with an ultrasonic sensor detecting the finish point.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="software" data-media="images/Game1.jfif|images/Game2.jfif|images/Game3.jfif|images/Game4.jfif|images/Game5.jfif">
+            <img class="work-cover" src="images/Game1.jfif" alt="Mystery Number Hunt game screenshot" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Software · HTML · CSS · JS</span>
+              <h3><button class="work-open" type="button">Mystery Number Hunt</button></h3>
+              <p>An interactive number-guessing web game that generates a random number and gives instant feedback on every guess, with a clean, responsive layout.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="software" data-media="images/inventory1.jpeg|images/inventory2.jpeg|video/inventoryvid.mp4">
+            <img class="work-cover" src="images/inventory1.jpeg" alt="Inventory system screenshot" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Software · Web app</span>
+              <h3><button class="work-open" type="button">Inventory System</button></h3>
+              <p>A web-based inventory management app built with HTML, CSS, and JavaScript.</p>
+            </div>
+          </article>
+
+          <article class="work-card feature" data-tags="hardware" data-media="images/Obstacle.jpg|video/Obstacle.mp4">
+            <img class="work-cover" src="images/Obstacle.jpg" alt="Obstacle avoidance and line follower robot" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Hardware · Arduino · Sensors</span>
+              <h3><button class="work-open" type="button">Obstacle Avoidance &amp; Line Follower</button></h3>
+              <p>An Arduino-based robot integrating an ultrasonic sensor, IR sensors, and a servo motor to detect obstacles and follow a predefined line, adjusting its movement automatically.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware" data-media="images/Lock.jpg|video/Lock.mp4">
+            <img class="work-cover" src="images/Lock.jpg" alt="Arduino digital combination lock" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Hardware · Arduino · Keypad</span>
+              <h3><button class="work-open" type="button">Digital Combination Lock</button></h3>
+              <p>A secure Arduino-powered lock that grants access only when the correct combination is entered on a keypad.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware" data-media="images/music.jpg|video/music.mp4">
+            <img class="work-cover" src="images/music.jpg" alt="Music visualizer LED matrix" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Hardware · Arduino · LED matrix</span>
+              <h3><button class="work-open" type="button">Music Visualizer (4×4 Matrix)</button></h3>
+              <p>A music-reactive LED device that uses a microphone and an Arduino to display sound levels in real time.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware" data-media="images/Running led.jpg|video/RunningLed.mp4">
+            <img class="work-cover" src="images/Running led.jpg" alt="Running LED circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Hardware · 555 Timer · CD4017</span>
+              <h3><button class="work-open" type="button">Running LED</button></h3>
+              <p>A 555 timer in astable mode generates clock pulses that a CD4017 decade counter uses to light LEDs in sequence.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware" data-media="images/Amp1.jpeg|images/Amp2.jpeg">
+            <img class="work-cover" src="images/Amp1.jpeg" alt="Amplifier and speaker build" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Hardware · Analog audio</span>
+              <h3><button class="work-open" type="button">Amplifier &amp; Speaker</button></h3>
+              <p>An amplifier circuit that boosts an audio signal, which is then output through a speaker.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware" data-media="images/Lamp.jpeg">
+            <img class="work-cover" src="images/Lamp.jpeg" alt="Automatic lamp circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Hardware · Light sensing</span>
+              <h3><button class="work-open" type="button">Automatic Lamp</button></h3>
+              <p>A device that automatically turns on when there is no ambient light.</p>
+            </div>
+          </article>
+
+          <article class="work-card feature" data-tags="hardware logic" data-media="images/final.jpg">
+            <img class="work-cover" src="images/final.jpg" alt="JK flip-flop decade counter circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Digital logic · Sequential</span>
+              <h3><button class="work-open" type="button">JK Flip-Flop (74HC73) Counter 0–9</button></h3>
+              <p>Four 74HC73 JK flip-flops configured as a 4-bit binary counter that cycles 0000–1001, with a reset circuit that clears the count back to 0 — output shown on LEDs.</p>
+            </div>
+          </article>
+
+          <article class="work-card feature" data-tags="hardware logic" data-media="images/plate6.jpg">
+            <img class="work-cover" src="images/plate6.jpg" alt="2-bit parallel adder circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Digital logic · Combinational</span>
+              <h3><button class="work-open" type="button">2-Bit Parallel Adder</button></h3>
+              <p>A combinational circuit that adds two 2-bit binary numbers at once using XOR, AND, and OR gates, with the sum and carry-out displayed on LEDs.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware logic" data-media="images/Midtermproject.jpg">
+            <img class="work-cover" src="images/Midtermproject.jpg" alt="Seven-segment display circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Digital logic · Display</span>
+              <h3><button class="work-open" type="button">0–9 on a 7-Segment Display</button></h3>
+              <p>Displays digits 0–9 by lighting the right combination of segments (a–g) — the same technique used in clocks, calculators, and meters.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware logic" data-media="images/plate5.jpeg">
+            <img class="work-cover" src="images/plate5.jpeg" alt="NAND and NOR gate circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Digital logic · Universal gates</span>
+              <h3><button class="work-open" type="button">Boolean Functions Using NAND &amp; NOR</button></h3>
+              <p>Boolean functions implemented with only NAND or NOR gates — universal gates that can perform AND, OR, and NOT, simplifying the design.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware logic" data-media="images/Plate2.jpg">
+            <img class="work-cover" src="images/Plate2.jpg" alt="Boolean function circuit using basic gates" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Digital logic · Boolean</span>
+              <h3><button class="work-open" type="button">Boolean Function Using Basic Gates</button></h3>
+              <p>A logical expression realized by interconnecting AND, OR, and NOT gates to process binary inputs and produce the correct output.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware logic" data-media="images/Plate3.jpg">
+            <img class="work-cover" src="images/Plate3.jpg" alt="Simplified Boolean expression circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Digital logic · Boolean</span>
+              <h3><button class="work-open" type="button">Simplifying Boolean Expressions</button></h3>
+              <p>Reducing a logic expression to its simplest form without changing its output — making the circuit easier, faster, and more efficient.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware logic" data-media="images/Plate2.jfif">
+            <img class="work-cover" src="images/Plate2.jfif" alt="Sum of minterms circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Digital logic · SOP / POS</span>
+              <h3><button class="work-open" type="button">Sum of Minterms &amp; Product of Maxterms</button></h3>
+              <p>Sum of Minterms (SOP) is an OR of AND terms that produce an output of 1; Product of Maxterms (POS) is an AND of OR terms that produce an output of 0.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware logic" data-media="images/Plate4.jpg">
+            <img class="work-cover" src="images/Plate4.jpg" alt="Product of maxterms circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Digital logic · SOP / POS</span>
+              <h3><button class="work-open" type="button">SOP &amp; POS — Second Implementation</button></h3>
+              <p>The same SOP/POS principles applied to a different Boolean expression.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware logic" data-media="images/diode logic.png">
+            <img class="work-cover" src="images/diode logic.png" alt="Diode-transistor logic circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Transistor logic · DTL</span>
+              <h3><button class="work-open" type="button">Diode-Transistor Logic (DTL)</button></h3>
+              <p>DTL circuits combine diodes and a transistor to perform basic logic functions.</p>
+            </div>
+          </article>
+
+          <article class="work-card" data-tags="hardware logic" data-media="images/RTL.jpg">
+            <img class="work-cover" src="images/RTL.jpg" alt="Resistor-transistor logic circuit" loading="lazy" decoding="async" />
+            <div class="work-info">
+              <span class="work-meta">Transistor logic · RTL</span>
+              <h3><button class="work-open" type="button">Resistor-Transistor Logic (RTL)</button></h3>
+              <p>RTL circuits perform digital logic using resistors, with a transistor providing output amplification.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="more-wrap">
+          <button class="pill pill-outline" type="button" id="work-more" hidden>Show all projects</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CERTIFICATES ============================
+         TO ADD A CERTIFICATE:
+         1. Put the image in  images/certificate/  (JPG or PNG)
+         2. Copy one <article class="cert-card"> block below
+         3. Change the image path, the title, the issuer and the date.
+         The image path is written ONCE (in the <img>) — the viewer uses the
+         same file. Newest certificates first looks most professional.
+         The counter in the About section updates itself.
+    ======================================================================= -->
+    <section id="certificates" class="section">
+      <div class="container">
+        <div class="row-head">
+          <div>
+            <span class="tag reveal"><span class="tag-num">05</span>Certifications</span>
+            <h2 class="h2 reveal" style="--d:1">Certificates<br />and training</h2>
+          </div>
+          <p class="row-head-text reveal" style="--d:2">Trainings, seminars, and events from Holy Cross of Davao College and ICpEP Student Edition. Click any certificate to view it in full.</p>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert-card reveal">
+            <div class="cert-thumb">
+              <img src="images/certificate/Cert-2.jpg" alt="Certificate: On-the-Job Training (OJT)" loading="lazy" decoding="async" />
+            </div>
+            <div class="cert-info">
+              <span class="cert-issuer">Holy Cross of Davao College</span>
+              <h3><button class="cert-open" type="button">On-the-Job Training (OJT)</button></h3>
+              <span class="cert-date">September 2026</span>
+            </div>
+          </article>
+
+          <article class="cert-card reveal" style="--d:1">
+            <div class="cert-thumb">
+              <img src="images/certificate/Cert-7.jpg" alt="Certificate: Future-Ready Careers: Preparing You to Thrive in a World of Innovation and Opportunity" loading="lazy" decoding="async" />
+            </div>
+            <div class="cert-info">
+              <span class="cert-issuer">Holy Cross of Davao College</span>
+              <h3><button class="cert-open" type="button">Future-Ready Careers: Preparing You to Thrive in a World of Innovation and Opportunity</button></h3>
+              <span class="cert-date">April 2026</span>
+            </div>
+          </article>
+
+          <article class="cert-card reveal" style="--d:2">
+            <div class="cert-thumb">
+              <img src="images/certificate/Cert-8.jpg" alt="Certificate: Online Psychological Test Interpretation for Interns" loading="lazy" decoding="async" />
+            </div>
+            <div class="cert-info">
+              <span class="cert-issuer">Holy Cross of Davao College</span>
+              <h3><button class="cert-open" type="button">Online Psychological Test Interpretation for Interns</button></h3>
+              <span class="cert-date">March 2026</span>
+            </div>
+          </article>
+
+          <article class="cert-card reveal" style="--d:3">
+            <div class="cert-thumb">
+              <img src="images/certificate/Cert-1.jpg" alt="Certificate: CET Technofair" loading="lazy" decoding="async" />
+            </div>
+            <div class="cert-info">
+              <span class="cert-issuer">Holy Cross of Davao College</span>
+              <h3><button class="cert-open" type="button">CET Technofair</button></h3>
+              <span class="cert-date">March 2025</span>
+            </div>
+          </article>
+
+          <article class="cert-card reveal">
+            <div class="cert-thumb">
+              <img src="images/certificate/Cert-4.jpg" alt="Certificate: Integrating AI into Engineering Research: Foundation and Opportunities" loading="lazy" decoding="async" />
+            </div>
+            <div class="cert-info">
+              <span class="cert-issuer">ICpEP Student Edition · Region 11</span>
+              <h3><button class="cert-open" type="button">Integrating AI into Engineering Research: Foundation and Opportunities</button></h3>
+              <span class="cert-date">October 2024</span>
+            </div>
+          </article>
+
+          <article class="cert-card reveal" style="--d:1">
+            <div class="cert-thumb">
+              <img src="images/certificate/Cert-3.jpg" alt="Certificate: CPCB Fabrication: Layout, Printing, Etching, and Soldering Essentials" loading="lazy" decoding="async" />
+            </div>
+            <div class="cert-info">
+              <span class="cert-issuer">Holy Cross of Davao College</span>
+              <h3><button class="cert-open" type="button">CPCB Fabrication: Layout, Printing, Etching, and Soldering Essentials</button></h3>
+              <span class="cert-date">September 2024</span>
+            </div>
+          </article>
+
+          <article class="cert-card reveal" style="--d:2">
+            <div class="cert-thumb">
+              <img src="images/certificate/Cert-5.jpg" alt="Certificate: Beyond LLMs: From Machine Learning to AGI" loading="lazy" decoding="async" />
+            </div>
+            <div class="cert-info">
+              <span class="cert-issuer">ICpEP Student Edition · Region 11</span>
+              <h3><button class="cert-open" type="button">Beyond LLMs: From Machine Learning to AGI</button></h3>
+              <span class="cert-date">February 2024</span>
+            </div>
+          </article>
+
+          <article class="cert-card reveal" style="--d:3">
+            <div class="cert-thumb">
+              <img src="images/certificate/Cert-6.jpg" alt="Certificate: 3D Printing Technology: From Digital Design to Physical Reality" loading="lazy" decoding="async" />
+            </div>
+            <div class="cert-info">
+              <span class="cert-issuer">ICpEP Student Edition · Region 11</span>
+              <h3><button class="cert-open" type="button">3D Printing Technology: From Digital Design to Physical Reality</button></h3>
+              <span class="cert-date">February 2024</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================
+         Your email, LinkedIn, GitHub and phone are set in ONE place:
+         the PROFILE block at the top of script.js.
+    ==================================================================== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="beam" aria-hidden="true"></span>
+          <div class="contact-intro">
+            <span class="tag tag-glass"><span class="tag-num">06</span>Contact</span>
+            <h2 class="h2">Let's build something<br />that works.</h2>
+            <p>Open to collaborations, projects, and opportunities to learn. The fastest way to reach me is by email — I'll get back to you as soon as I can.</p>
+            <div class="btn-row">
+              <a href="mailto:franzebona13@gmail.com" data-link="email" class="pill pill-light pill-lg">Send an email</a>
+              <button type="button" class="pill pill-glass pill-lg" id="copy-email">Copy email</button>
+            </div>
+            <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+          </div>
+
+          <ul class="contact-list">
+            <li data-optional="resume">
+              <a class="contact-item contact-item-resume" href="resume/Franz-Ebona-Resume.pdf" data-resume target="_blank" rel="noopener">
+                <span class="beam beam-fast" aria-hidden="true"></span>
+                <span class="ci-icon" aria-hidden="true">CV</span>
+                <span class="ci-text"><span class="ci-label">Resume</span><span class="ci-value">View or download <span data-resume-type>PDF</span></span></span>
+                <span class="ci-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-item" href="mailto:franzebona13@gmail.com" data-link="email">
+                <span class="ci-icon" aria-hidden="true">@</span>
+                <span class="ci-text"><span class="ci-label">Email</span><span class="ci-value" data-text="email">franzebona13@gmail.com</span></span>
+                <span class="ci-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-item" href="https://www.linkedin.com/in/franz-jan-eboña-40697b2a8" data-link="linkedin">
+                <span class="ci-icon" aria-hidden="true">in</span>
+                <span class="ci-text"><span class="ci-label">LinkedIn</span><span class="ci-value" data-text="linkedin">linkedin.com/in/franz-jan-eboña-40697b2a8</span></span>
+                <span class="ci-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-item" href="https://github.com/franzebona13" data-link="github">
+                <span class="ci-icon" aria-hidden="true">&lt;/&gt;</span>
+                <span class="ci-text"><span class="ci-label">GitHub</span><span class="ci-value" data-text="github">github.com/franzebona13</span></span>
+                <span class="ci-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li data-optional="phone">
+              <a class="contact-item" href="tel:+639276030362" data-link="phone">
+                <span class="ci-icon" aria-hidden="true">#</span>
+                <span class="ci-text"><span class="ci-label">Phone</span><span class="ci-value" data-text="phone">+63 927 603 0362</span></span>
+                <span class="ci-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#home" class="brand">
+        <span class="brand-mark" aria-hidden="true">FJ</span>
+        <span class="brand-name">Franz Jan Eboña</span>
+      </a>
+      <ul class="footer-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="resume/Franz-Ebona-Resume.pdf" data-resume target="_blank" rel="noopener">Resume</a></li>
+        <li><a href="https://github.com/franzebona13" data-link="github">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/franz-jan-eboña-40697b2a8" data-link="linkedin">LinkedIn</a></li>
+      </ul>
+      <p class="footer-copy">© <span id="year">2026</span> Franz Jan Eboña · Computer Engineering</p>
+    </div>
+  </footer>
+
+  <a href="#home" class="to-top" aria-label="Back to top">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" /></svg>
+  </a>
+
+  <!-- ============================ RESUME VIEWER ============================
+       Opens when any "Resume" link is clicked (desktop). On phones the file
+       opens in the browser's own viewer instead. The file path is set in
+       the PROFILE block at the top of script.js.
+  ======================================================================= -->
+  <div class="resume-modal" id="resume-modal" role="dialog" aria-modal="true" aria-labelledby="rm-title" hidden>
+    <div class="rm-backdrop" data-rm-close></div>
+    <div class="rm-panel">
+      <div class="rm-bar">
+        <div class="rm-heading">
+          <span class="rm-kicker">Resume</span>
+          <h3 id="rm-title">Franz Jan Eboña</h3>
+        </div>
+        <div class="rm-actions">
+          <a class="rm-action rm-open" href="resume/Franz-Ebona-Resume.pdf" target="_blank" rel="noopener">
+            <span class="rm-action-text">Open in new tab</span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></svg>
+          </a>
+          <a class="pill pill-light pill-sm rm-download" href="resume/Franz-Ebona-Resume.pdf" download>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" /></svg>
+            <span>Download <span data-resume-type>PDF</span></span>
+          </a>
+          <button class="rm-close" type="button" aria-label="Close resume" data-rm-close>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+        </div>
+      </div>
+      <div class="rm-body">
+        <div class="rm-loading" aria-live="polite"><span class="rm-spinner" aria-hidden="true"></span>Loading resume…</div>
+        <iframe class="rm-frame" title="Resume of Franz Jan Eboña" hidden></iframe>
+        <div class="rm-image-wrap" hidden><img class="rm-img" alt="Resume of Franz Jan Eboña" /></div>
+        <div class="rm-empty" hidden>
+          <p class="rm-empty-title">The resume isn't available right now.</p>
+          <p>Please reach out by email and I'll send it to you directly.</p>
+          <a href="mailto:franzebona13@gmail.com" data-link="email" class="pill pill-light pill-sm">Email me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ GALLERY / LIGHTBOX ============================ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lb-title" hidden>
+    <div class="lb-backdrop" data-close></div>
+    <button class="lb-close" type="button" aria-label="Close" data-close>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+    <div class="lb-panel">
+      <div class="lb-stage">
+        <img class="lb-img" alt="" />
+        <video class="lb-video" controls playsinline hidden></video>
+        <button class="lb-nav lb-prev" type="button" aria-label="Previous">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+        </button>
+        <button class="lb-nav lb-next" type="button" aria-label="Next">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+        </button>
+      </div>
+      <div class="lb-caption">
+        <div class="lb-text">
+          <span class="lb-kicker"></span>
+          <h3 id="lb-title"></h3>
+          <p class="lb-desc"></p>
+        </div>
+        <span class="lb-count" aria-live="polite"></span>
+      </div>
+      <div class="lb-thumbs" role="group" aria-label="Gallery items"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
