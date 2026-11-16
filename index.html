@@ -13,7 +13,9 @@
   <meta property="og:description" content="Embedded systems, digital circuits, and web applications — projects, certificates, and resume." />
   <meta property="og:image" content="images/Profile.jpeg" />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%2360a5fa'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' text-anchor='middle' fill='%2304060d'%3EFJ%3C/text%3E%3C/svg%3E" />
+  <!-- Your logo as the browser-tab icon -->
+  <link rel="icon" type="image/png" href="images/Logo.png" />
+  <link rel="apple-touch-icon" href="images/Logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,7 +42,10 @@
     <nav class="nav" aria-label="Main">
       <div class="nav-group nav-main">
         <a href="#home" class="brand" aria-label="Franz Jan Eboña — back to top">
-          <span class="brand-mark" aria-hidden="true">FJ</span>
+          <span class="brand-mark" aria-hidden="true">
+          <img src="images/Logo.png" alt="" width="30" height="30" data-logo />
+          <span class="brand-fallback">FJ</span>
+        </span>
           <span class="brand-name">Franz Eboña</span>
         </a>
         <ul class="nav-links" id="nav-links">
@@ -53,7 +58,7 @@
       </div>
 
       <div class="nav-group nav-side">
-        <a href="resume/Franz-Ebona-Resume.pdf" class="nav-resume" data-resume target="_blank" rel="noopener" aria-label="View resume">
+        <a href="Resume/Resume.pdf" class="nav-resume" data-resume target="_blank" rel="noopener" aria-label="View resume">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h4" /></svg>
           <span class="nav-resume-text">Resume</span>
         </a>
@@ -114,7 +119,7 @@
               View my work
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </a>
-            <a href="resume/Franz-Ebona-Resume.pdf" class="pill pill-glass pill-lg" data-resume target="_blank" rel="noopener">
+            <a href="Resume/Resume.pdf" class="pill pill-glass pill-lg" data-resume target="_blank" rel="noopener">
               View resume
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5M9 13h6M9 17h4" /></svg>
             </a>
@@ -126,14 +131,52 @@
           </ul>
         </div>
 
+        <!-- ====== PROFILE PHOTO — "orbit" portrait ======
+             Your photo: images/Profile.jpeg
+             Your links sit on the ring; a light sweeps around it like a radar. -->
         <div class="hero-visual reveal" style="--d:2">
-          <div class="chip">
-            <span class="chip-pins chip-pins-left" aria-hidden="true"></span>
-            <span class="chip-pins chip-pins-right" aria-hidden="true"></span>
-            <div class="chip-body">
-              <img src="images/Profile.jpeg" alt="Portrait of Franz Jan Eboña" width="320" height="380" fetchpriority="high" />
+          <div class="orbit">
+            <span class="orbit-glow" aria-hidden="true"></span>
+            <span class="orbit-ring orbit-ring-outer" aria-hidden="true"><i class="orbit-sweep"></i></span>
+            <span class="orbit-ring orbit-ring-inner" aria-hidden="true"></span>
+
+            <div class="orbit-photo">
+              <img src="images/Profile.jpeg" alt="Portrait of Franz Jan Eboña" width="420" height="420" fetchpriority="high" />
             </div>
-            <span class="chip-label" aria-hidden="true">U1 · FJE</span>
+
+            <div class="orbit-track">
+              <a class="orbit-icon" style="--a: -35deg" href="https://github.com/franzebona13" data-link="github" aria-label="GitHub">
+                <span class="oi-inner">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+                </span>
+              </a>
+              <a class="orbit-icon" style="--a: 35deg" href="https://www.linkedin.com/in/franz-jan-eboña-40697b2a8" data-link="linkedin" aria-label="LinkedIn">
+                <span class="oi-inner">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+                </span>
+              </a>
+              <a class="orbit-icon" style="--a: 140deg" href="mailto:franzebona13@gmail.com" data-link="email" aria-label="Email">
+                <span class="oi-inner">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg>
+                </span>
+              </a>
+              <a class="orbit-icon" style="--a: -140deg" href="Resume/Resume.pdf" data-resume target="_blank" rel="noopener" aria-label="View resume">
+                <span class="oi-inner">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h4"/></svg>
+                </span>
+              </a>
+            </div>
+
+            <!-- numbers fill in automatically from your project & certificate cards -->
+            <div class="orbit-stat orbit-stat-a" aria-hidden="true">
+              <b><span data-total="hardware">18</span>+</b>
+              <small>Hardware<br />builds</small>
+            </div>
+            <div class="orbit-stat orbit-stat-b" aria-hidden="true">
+              <b data-total="certs">8</b>
+              <small>Certificates<br />earned</small>
+            </div>
+            <span class="orbit-status" aria-hidden="true"><span class="orbit-live"></span>Open to opportunities</span>
           </div>
         </div>
 
@@ -167,7 +210,7 @@
             <p>Every build sharpens how I approach problems. I'm continually growing my technical range and critical thinking so I can contribute meaningfully to the team I join next.</p>
             <div class="about-links">
               <a href="#process" class="text-link">See how I work <span aria-hidden="true">→</span></a>
-              <a href="resume/Franz-Ebona-Resume.pdf" class="text-link" data-resume target="_blank" rel="noopener">View my resume <span aria-hidden="true">↗</span></a>
+              <a href="Resume/Resume.pdf" class="text-link" data-resume target="_blank" rel="noopener">View my resume <span aria-hidden="true">↗</span></a>
             </div>
 
             <!-- These numbers are counted automatically from your project and certificate cards -->
@@ -329,7 +372,7 @@
             </div>
           </article>
 
-          <article class="work-card feature" data-tags="hardware" data-media="images/Obstacle.jpg|video/Obstacle.mp4">
+          <article class="work-card feature" data-tags="hardware" data-media="images/Obstacle.jpg|video/obstacle.mp4">
             <img class="work-cover" src="images/Obstacle.jpg" alt="Obstacle avoidance and line follower robot" loading="lazy" decoding="async" />
             <div class="work-info">
               <span class="work-meta">Hardware · Arduino · Sensors</span>
@@ -455,8 +498,8 @@
             </div>
           </article>
 
-          <article class="work-card" data-tags="hardware logic" data-media="images/diode logic.png">
-            <img class="work-cover" src="images/diode logic.png" alt="Diode-transistor logic circuit" loading="lazy" decoding="async" />
+          <article class="work-card" data-tags="hardware logic" data-media="images/diode logic.jpg">
+            <img class="work-cover" src="images/diode logic.jpg" alt="Diode-transistor logic circuit" loading="lazy" decoding="async" />
             <div class="work-info">
               <span class="work-meta">Transistor logic · DTL</span>
               <h3><button class="work-open" type="button">Diode-Transistor Logic (DTL)</button></h3>
@@ -612,7 +655,7 @@
 
           <ul class="contact-list">
             <li data-optional="resume">
-              <a class="contact-item contact-item-resume" href="resume/Franz-Ebona-Resume.pdf" data-resume target="_blank" rel="noopener">
+              <a class="contact-item contact-item-resume" href="Resume/Resume.pdf" data-resume target="_blank" rel="noopener">
                 <span class="beam beam-fast" aria-hidden="true"></span>
                 <span class="ci-icon" aria-hidden="true">CV</span>
                 <span class="ci-text"><span class="ci-label">Resume</span><span class="ci-value">View or download <span data-resume-type>PDF</span></span></span>
@@ -657,13 +700,16 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <a href="#home" class="brand">
-        <span class="brand-mark" aria-hidden="true">FJ</span>
+        <span class="brand-mark" aria-hidden="true">
+          <img src="images/Logo.png" alt="" width="30" height="30" data-logo />
+          <span class="brand-fallback">FJ</span>
+        </span>
         <span class="brand-name">Franz Jan Eboña</span>
       </a>
       <ul class="footer-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#certificates">Certificates</a></li>
-        <li><a href="resume/Franz-Ebona-Resume.pdf" data-resume target="_blank" rel="noopener">Resume</a></li>
+        <li><a href="Resume/Resume.pdf" data-resume target="_blank" rel="noopener">Resume</a></li>
         <li><a href="https://github.com/franzebona13" data-link="github">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/franz-jan-eboña-40697b2a8" data-link="linkedin">LinkedIn</a></li>
       </ul>
@@ -689,11 +735,11 @@
           <h3 id="rm-title">Franz Jan Eboña</h3>
         </div>
         <div class="rm-actions">
-          <a class="rm-action rm-open" href="resume/Franz-Ebona-Resume.pdf" target="_blank" rel="noopener">
+          <a class="rm-action rm-open" href="Resume/Resume.pdf" target="_blank" rel="noopener">
             <span class="rm-action-text">Open in new tab</span>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></svg>
           </a>
-          <a class="pill pill-light pill-sm rm-download" href="resume/Franz-Ebona-Resume.pdf" download>
+          <a class="pill pill-light pill-sm rm-download" href="Resume/Resume.pdf" download>
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" /></svg>
             <span>Download <span data-resume-type>PDF</span></span>
           </a>

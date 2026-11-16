@@ -2,7 +2,7 @@
    FRANZ JAN EBOÑA — PORTFOLIO
    Layout inspired by modern agency sites (floating pill nav,
    framed hero, numbered rows), kept original with a
-   "schematic" identity: circuit traces, chip-package portrait,
+   "schematic" identity: circuit traces, orbit portrait,
    silkscreen-style mono labels and an oscilloscope trace.
    Palette: "Oscilloscope" — signal blue → phosphor mint.
    Effects: ambient glow, film grain, circuit motifs, mouse light,
@@ -281,17 +281,28 @@ ul, ol { list-style: none; }
 }
 
 .brand-mark {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 9px;
-  background: var(--grad);
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 6px 16px -6px rgba(var(--accent-rgb), 0.6);
   color: var(--ink);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  transition: transform 0.4s var(--ease);
 }
+.brand:hover .brand-mark { transform: rotate(-6deg) scale(1.06); }
+.brand-mark img { width: 100%; height: 100%; object-fit: cover; }
+.brand-fallback { display: none; }
+/* if images/Logo.png is missing, the old "FJ" badge shows instead */
+.brand-mark.no-logo { background: var(--grad); box-shadow: none; }
+.brand-mark.no-logo img { display: none; }
+.brand-mark.no-logo .brand-fallback { display: block; }
 
 .nav-links {
   display: flex;
@@ -504,66 +515,229 @@ ul, ol { list-style: none; }
 }
 .hero-social a:hover { color: var(--accent-2); }
 
-/* Portrait as a chip package (original motif kept from v1) */
+/* ---------- Profile photo: "orbit" portrait ----------
+   A glowing circle portrait that fades into the hero at the bottom,
+   with a radar-style light sweeping around the ring and your links
+   travelling slowly along the orbit. */
 .hero-visual {
   display: flex;
   justify-content: center;
   align-self: center;
 }
 
-.chip {
+.orbit {
   position: relative;
-  width: min(100%, 330px);
-  padding: 0 22px;
+  width: min(100%, 440px);
+  aspect-ratio: 1;
+  margin: 1rem 0 4rem;
 }
 
-.chip-body {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: 24px;
+.orbit-glow {
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(var(--accent-rgb), 0.55), transparent 60%),
+    radial-gradient(circle at 70% 75%, rgba(var(--mint-rgb), 0.35), transparent 60%);
+  filter: blur(46px);
+  animation: glowPulse 6s ease-in-out infinite alternate;
+}
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-ring-outer {
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* radar / oscilloscope sweep running around the outer ring */
+.orbit-sweep {
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0 70%, rgba(var(--mint-rgb), 0.15) 82%, rgba(var(--mint-rgb), 0.95) 99.5%, transparent 100%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px));
+  animation: spin 7s linear infinite;
+}
+
+.orbit-ring-inner {
+  inset: 8%;
+  border: 1px dashed rgba(var(--accent-rgb), 0.3);
+  animation: spin 80s linear infinite reverse;
+}
+
+.orbit-photo {
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: var(--surface-2);
-  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7), 0 0 70px rgba(var(--accent-rgb), 0.22);
+  background: radial-gradient(circle at 50% 35%, #2b5fc4, #0d2257 70%);
+  /* the bottom of the photo melts into the background */
+  -webkit-mask-image: linear-gradient(180deg, #000 62%, rgba(0, 0, 0, 0.35) 85%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 62%, rgba(0, 0, 0, 0.35) 85%, transparent 100%);
 }
 
-.chip-body img {
+/* thin glowing edge (fades out at the bottom together with the photo) */
+.orbit-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--accent-rgb), 0.7);
+  box-shadow: inset 0 0 40px rgba(var(--accent-rgb), 0.25);
+  pointer-events: none;
+}
+
+.orbit-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
+  transition: transform 1.2s var(--ease);
 }
 
-.chip-body::after {
+.orbit:hover .orbit-photo img { transform: scale(1.04); }
+
+/* social links sitting on the orbit ring */
+.orbit-track {
+  position: absolute;
+  inset: 0;
+}
+
+.orbit-icon {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--a));
+  pointer-events: none;
+}
+
+.oi-inner {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 52px;
+  height: 52px;
+  margin: -26px 0 0 -26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  pointer-events: auto;
+  color: #fff;
+  background: linear-gradient(145deg, #3b82f6, #1d4ed8);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 10px 24px -8px rgba(29, 78, 216, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: rotate(calc(var(--a) * -1));
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.oi-inner svg {
+  width: 21px;
+  height: 21px;
+}
+
+.orbit-icon:hover .oi-inner,
+.orbit-icon:focus-visible .oi-inner {
+  background: var(--mint);
+  color: var(--ink);
+  box-shadow: 0 0 0 6px rgba(var(--mint-rgb), 0.2), 0 12px 26px -8px rgba(var(--mint-rgb), 0.7);
+}
+
+.orbit-icon:focus-visible { outline: none; }
+.orbit-icon:focus-visible .oi-inner { outline: 2px solid #fff; outline-offset: 3px; }
+
+.oi-inner { transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.35s var(--ease); }
+.orbit-icon:hover .oi-inner { transform: rotate(calc(var(--a) * -1)) scale(1.12); }
+
+/* floating stat cards */
+.orbit-stat {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 1rem 0.7rem 0.85rem;
+  border-radius: 16px;
+  background: rgba(8, 14, 30, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, 0.7);
+  animation: float 7s ease-in-out infinite;
+}
+
+.orbit-stat b {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.orbit-stat small {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(238, 242, 248, 0.72);
+}
+
+.orbit-stat-a { left: -12%; top: 36%; }
+@media (max-width: 1180px) {
+  .orbit-stat-a { left: -2%; }
+  .orbit-stat-b { right: -4%; }
+}
+.orbit-stat-b { right: -12%; top: 56%; animation-delay: -3.5s; }
+
+.orbit-status {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: -13%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: rgba(8, 14, 30, 0.8);
+  border: 1px solid rgba(var(--mint-rgb), 0.35);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: #e6fff5;
+}
+
+.orbit-live {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mint);
+}
+
+.orbit-live::after {
   content: "";
   position: absolute;
-  top: 14px;
-  left: 14px;
-  width: 10px;
-  height: 10px;
+  inset: 0;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: var(--mint);
+  animation: ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-/* pin rows drawn with a repeating gradient on each side */
-.chip-pins {
-  position: absolute;
-  top: 12%;
-  bottom: 12%;
-  width: 14px;
-  background: repeating-linear-gradient(180deg, rgba(var(--accent-rgb), 0.8) 0 4px, transparent 4px 22px);
-}
-.chip-pins-left { left: 6px; }
-.chip-pins-right { right: 6px; }
-
-.chip-label {
-  position: absolute;
-  bottom: -30px;
-  left: 22px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.5);
-}
+@keyframes glowPulse { from { opacity: 0.75; transform: scale(0.96); } to { opacity: 1; transform: scale(1.04); } }
 
 .hero-meta {
   position: absolute;
@@ -1920,24 +2094,6 @@ body::after {
   animation: ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-/* portrait floats and gets a scope "scan line" */
-.chip { animation: float 7s ease-in-out infinite; }
-
-.chip-body::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  height: 30%;
-  pointer-events: none;
-  background: linear-gradient(180deg, transparent 0%, rgba(var(--mint-rgb), 0.1) 80%, rgba(var(--mint-rgb), 0.35) 100%);
-  border-bottom: 1px solid rgba(var(--mint-rgb), 0.55);
-  transform: translateY(-100%);
-  animation: scan 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-}
-
 /* top progress bar */
 .scroll-progress {
   position: fixed;
@@ -2094,10 +2250,11 @@ body::after {
     padding: 120px 1.5rem 120px;
   }
 
-  .hero-visual { order: -1; justify-content: flex-start; }
+  .hero-visual { order: -1; justify-content: center; }
   .hero-scope { height: 110px; bottom: 96px; opacity: 0.8; }
-  .chip { width: 210px; }
-  .chip-label { display: none; }
+  .orbit { width: min(100%, 360px); margin: 0 0 1rem; }
+  .orbit-stat-a { left: -8%; }
+  .orbit-stat-b { right: -8%; }
 
   .row-head { flex-direction: column; align-items: flex-start; }
   .row-head::before, .split-head::before { left: -60px; width: 380px; opacity: 0.18; }
@@ -2129,6 +2286,16 @@ body::after {
   .hero-meta span:nth-child(2) { display: none; }
   .hero-scroll { display: none !important; }
   .btn-row .pill-lg { flex: 1 1 auto; }
+
+  .orbit { width: min(100%, 300px); }
+  .oi-inner { width: 42px; height: 42px; margin: -21px 0 0 -21px; }
+  .oi-inner svg { width: 18px; height: 18px; }
+  .orbit-stat { padding: 0.5rem 0.75rem 0.5rem 0.65rem; gap: 0.5rem; border-radius: 13px; }
+  .orbit-stat b { font-size: 1.25rem; }
+  .orbit-stat small { font-size: 0.56rem; }
+  .orbit-stat-a { left: -4%; }
+  .orbit-stat-b { right: -4%; }
+  .orbit-status { font-size: 0.64rem; padding: 0.4rem 0.8rem; }
 
   .process-grid { grid-template-columns: minmax(0, 1fr); }
   .process-card { min-height: 0; }
@@ -2181,7 +2348,7 @@ body::after {
   .marquee-track { flex-wrap: wrap; width: auto; gap: 0.75rem 1.75rem; }
   .marquee { -webkit-mask-image: none; mask-image: none; }
   .js .reveal.reveal-clip img { clip-path: none; transform: none; }
-  .chip-body::before, .tag-dot::after { display: none; }
+  .tag-dot::after, .orbit-live::after { display: none; }
   .cursor-light, .section::after { display: none; }
   .hero-content, .hero-visual { transform: none; opacity: 1; }
 }

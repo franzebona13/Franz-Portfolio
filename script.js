@@ -3,7 +3,7 @@
    Every Email / LinkedIn / GitHub / Phone / Resume link on the page
    reads from this block. Set phone or resume to "" to hide them.
 
-   RESUME: put your file in a folder named "resume" next to
+   RESUME: put your file in a folder named "Resume" next to
    index.html, named exactly as below (PDF recommended; a JPG or
    PNG also works — just change the file name here).
 ============================================================= */
@@ -21,6 +21,16 @@ const PROFILE = {
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* =============================================================
+     LOGO — if images/Logo.png is missing, show the "FJ" badge instead
+  ============================================================= */
+  $$("[data-logo]").forEach((img) => {
+    const box = img.closest(".brand-mark");
+    const fail = () => box && box.classList.add("no-logo");
+    if (img.complete && img.naturalWidth === 0) fail();
+    img.addEventListener("error", fail);
+  });
 
   /* =============================================================
      PROFILE LINKS
@@ -525,6 +535,13 @@ const PROFILE = {
     );
     countObserver.observe(statsBox);
   }
+
+  // Numbers on the floating cards around the profile photo
+  $$("[data-total]").forEach((el) => {
+    const n = counts[el.dataset.total];
+    if (n !== undefined) el.textContent = n;
+    if (!n) (el.closest(".orbit-stat") || el).hidden = true;
+  });
 
   const certStat = $('[data-stat="certs"]');
   if (certStat && counts.certs === 0) certStat.hidden = true;
