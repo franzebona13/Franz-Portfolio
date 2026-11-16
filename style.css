@@ -571,37 +571,43 @@ ul, ol { list-style: none; }
   animation: spin 80s linear infinite reverse;
 }
 
+/* blue disc behind you */
 .orbit-photo {
+  position: absolute;
+  inset: 0;
+}
+
+.orbit-photo::before {
+  content: "";
   position: absolute;
   inset: 15%;
   border-radius: 50%;
-  overflow: hidden;
-  background: radial-gradient(circle at 50% 35%, #2b5fc4, #0d2257 70%);
-  /* the bottom of the photo melts into the background */
-  -webkit-mask-image: linear-gradient(180deg, #000 62%, rgba(0, 0, 0, 0.35) 85%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 62%, rgba(0, 0, 0, 0.35) 85%, transparent 100%);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(147, 197, 253, 0.35), transparent 60%),
+    linear-gradient(180deg, #2f6fe4 0%, #1a3f9e 55%, rgba(13, 34, 87, 0) 100%);
+  box-shadow: inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.55);
+  /* the disc fades out at the bottom too */
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
 }
 
-/* thin glowing edge (fades out at the bottom together with the photo) */
-.orbit-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 2px solid rgba(var(--accent-rgb), 0.7);
-  box-shadow: inset 0 0 40px rgba(var(--accent-rgb), 0.25);
-  pointer-events: none;
-}
-
+/* your cut-out photo (transparent PNG) standing in front of the disc;
+   the hair rises just above the circle and the body melts into the page */
 .orbit-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  width: 74%;
+  height: auto;
+  transform: translateX(-50%);
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.45));
+  -webkit-mask-image: linear-gradient(180deg, #000 68%, transparent 98%);
+  mask-image: linear-gradient(180deg, #000 68%, transparent 98%);
   transition: transform 1.2s var(--ease);
 }
 
-.orbit:hover .orbit-photo img { transform: scale(1.04); }
+.orbit:hover .orbit-photo img { transform: translateX(-50%) scale(1.03); }
 
 /* social links sitting on the orbit ring */
 .orbit-track {
